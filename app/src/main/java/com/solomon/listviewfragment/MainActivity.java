@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 FragmentOne fragmentOne;
@@ -17,14 +18,17 @@ FragmentTwo fragmentTwo;
         fragmentOne = new FragmentOne();
         fragmentTwo = new FragmentTwo();
 
+
+
+    }
+    public void fragment1(View view) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .addToBackStack(null)
                 .add(R.id.framelayout, fragmentOne)
                 .commit();
-
     }
-    public void data1(String item){
+    public void data(String item){
         FragmentManager managerOne = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = managerOne.beginTransaction();
         FragmentTwo fragmentTwo = new FragmentTwo();
@@ -33,7 +37,15 @@ FragmentTwo fragmentTwo;
         fragmentTwo.setArguments(bundle);
         fragmentTransaction.replace(R.id.framelayout, fragmentTwo);
         fragmentTransaction.commit();
+        fragmentTransaction.addToBackStack(null);
     }
 
 
+    public void fragment2(View view) {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .addToBackStack(null)
+                .add(R.id.framelayout, fragmentTwo)
+                .commit();
+    }
 }

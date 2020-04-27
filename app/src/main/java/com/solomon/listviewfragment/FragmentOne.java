@@ -55,7 +55,7 @@ ArrayAdapter<String> adapter;
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String item = arrayList.get(position);
                 MainActivity mainActivity = (MainActivity) getActivity();
-                mainActivity.data1(item);
+                mainActivity.data(item);
             }
         });
         return rootView;
